@@ -1,28 +1,28 @@
-const grabDiv = document.getElementById("content");
+// const grabDiv = document.getElementById("content");
 
-let header = document.createElement('header')
+// let header = document.createElement('header')
 
-grabDiv.appendChild(header)
+// grabDiv.appendChild(header)
 
-let resturauntName = document.createElement('h1')
+// let resturauntName = document.createElement('h1')
 
-resturauntName.textContent = "C & C's Oyster Bar"
-header.appendChild(resturauntName)
+// resturauntName.textContent = "C & C's Oyster Bar"
+// header.appendChild(resturauntName)
 
-let main = document.createElement('main')
+// let main = document.createElement('main')
 
-grabDiv.appendChild(main)
+// grabDiv.appendChild(main)
 
-let imageWrapper = document.createElement('div')
+// let imageWrapper = document.createElement('div')
 
-imageWrapper.classList = 'imageWrapper'
+// imageWrapper.classList = 'imageWrapper'
 
-main.appendChild(imageWrapper)
+// main.appendChild(imageWrapper)
 
 
 
-let frontImage = document.createElement("img")
+// let frontImage = document.createElement("img")
 
-frontImage.src = "./img/ben-stern-4n96lyJd2Xs-unsplash.jpg"
+// frontImage.src = "./img/ben-stern-4n96lyJd2Xs-unsplash.jpg"
 
-imageWrapper.appendChild(frontImage)
+// imageWrapper.appendChild(frontImage)

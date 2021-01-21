@@ -1,75 +1,36 @@
+/* set global styles */
 body {
   margin: 0px;
+  background-image: url(../img/ben-stern-4n96lyJd2Xs-unsplash.jpg);
+  background-size: cover;
 }
 
 html {
   box-sizing: border-box;
   margin: 0px;
 }
+
 *,
 *:before,
 *:after {
+  font-family: "Architects Daughter", cursive;
   margin: 0px;
   box-sizing: inherit;
 }
 
-#content {
-  display: flex;
-  flex-direction: column;
-}
-
-.imageWrapper {
-  width: 100vw;
-}
-
-img {
-  width: 100%;
-}
-
-h1 {
-  text-align: center;
-}
-
-.imageBackground {
-  height: 100vh;
-  width: 100vw;
-  background-image: url(../img/ben-stern-4n96lyJd2Xs-unsplash.jpg);
-  background-size: cover;
-}
-
-main {
-  flex: 1;
-  width: 100vw;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main > div {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  border: solid 2px #57c3cd;
-  height: 75vh;
-  width: 80vw;
-  max-width: 800px;
-}
+/* Header */
 
 header {
   height: 100px;
   width: 100vw;
-  align-self: flex-start;
   background: white;
+  display: flex;
 }
 
-nav {
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
+/* Logo */
 
 .logowrapper {
-  min-width: 185px;
+  min-width: 110px;
   display: flex;
   height: 100%;
   flex-direction: column;
@@ -77,40 +38,49 @@ nav {
   align-items: flex-start;
 }
 
-.logo > * {
-  margin: 0px;
-  font-family: "Architects Daughter", cursive;
-  color: #57c3cd;
-}
-
-h1 {
-  font-size: 28px;
-}
-
-h2 {
-  font-size: 18px;
-}
-
 .logo {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin: 0px 30px;
+  margin: 0px 15px;
+}
+
+.logo > * {
+  margin: 0px;
+  color: #57c3cd;
+}
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 12px;
+}
+
+/* Navigation Bar */
+
+nav {
+  display: flex;
+  align-items: center;
+  flex: 1;
 }
 
 ul {
   flex: 1;
   list-style: none;
-  margin-right: 30px;
   display: flex;
   justify-content: space-around;
   padding: 0px;
 }
 
-ul li {
-  font-family: "Architects Daughter", cursive;
+.navButton {
   font-size: 18px;
+  background-color: white;
+  border: none;
+  outline: none;
 }
 
 .navButton:hover {
@@ -118,23 +88,57 @@ ul li {
   transform: scale(1.1);
 }
 
-.navButton {
-  background-color: white;
-  border: none;
-  outline: none;
+/* set up background image */
+
+#content {
+  display: flex;
+  flex-direction: column;
 }
 
-.mainContent {
-  font-family: "Architects Daughter", cursive;
+.imageBackground {
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
+}
+
+/* Style White Box centered on page */
+
+main {
+  flex: 1;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pageContentwrapper {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  border: solid 2px #57c3cd;
+  width: 80vw;
+  max-width: 800px;
   font-size: 28px;
   text-align: center;
-  padding: 20px 40px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
 }
 
 h4 {
   font-size: 18px;
-  margin: 20px 0px;
+  margin-top: 20px;
   color: #9b58d5;
+}
+
+/* Home page Styling */
+
+.moreInfo {
+  margin: 20px 0px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .contactInfo {
@@ -144,11 +148,42 @@ h4 {
   white-space: nowrap;
 }
 
-.moreInfo {
-  margin: 30px;
-  display: flex;
-  flex-wrap: wrap;
+.formatButton {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 40px;
+  background: linear-gradient(
+    90deg,
+    rgba(87, 195, 205, 1) 43%,
+    rgba(155, 88, 213, 1) 100%
+  );
+  color: white;
+  outline: none;
+  border: white solid 1px;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
 
-  justify-content: space-around;
-  align-items: center;
+.moreInfo > * {
+  margin: 15px;
+}
+
+@media (min-width: 500px) {
+  ul {
+    margin-right: 30px;
+  }
+  .logowrapper {
+    min-width: 185px;
+  }
+
+  .logo {
+    margin: 0px 30px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
 }

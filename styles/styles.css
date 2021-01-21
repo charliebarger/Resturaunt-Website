@@ -18,6 +18,11 @@ html {
   box-sizing: inherit;
 }
 
+:root {
+  --purple: #9b58d5;
+  --blue: #57c3cd;
+}
+
 /* Header */
 
 header {
@@ -48,7 +53,7 @@ header {
 
 .logo > * {
   margin: 0px;
-  color: #57c3cd;
+  color: var(--blue);
 }
 
 h1 {
@@ -84,7 +89,7 @@ ul {
 }
 
 .navButton:hover {
-  color: #b385dc;
+  color: var(--purple);
   transform: scale(1.1);
 }
 
@@ -114,7 +119,7 @@ main {
 .pageContentwrapper {
   background: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
-  border: solid 2px #57c3cd;
+  border: solid 2px var(--blue);
   width: 80vw;
   max-width: 800px;
   font-size: 28px;
@@ -128,7 +133,7 @@ main {
 h4 {
   font-size: 18px;
   margin-top: 20px;
-  color: #9b58d5;
+  color: var(--purple);
 }
 
 /* Home page Styling */
@@ -152,11 +157,7 @@ h4 {
   font-size: 20px;
   padding: 10px 20px;
   border-radius: 40px;
-  background: linear-gradient(
-    90deg,
-    rgba(87, 195, 205, 1) 43%,
-    rgba(155, 88, 213, 1) 100%
-  );
+  background: linear-gradient(90deg, var(--blue) 43%, var(--purple) 100%);
   color: white;
   outline: none;
   border: white solid 1px;

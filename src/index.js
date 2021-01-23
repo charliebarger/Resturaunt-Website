@@ -1,11 +1,21 @@
+import {createHeader} from './createHeader'
+
 function createElement(type, classes, id,content) {
-    let element = document.createElement(type);
+    let newElement = document.createElement(type);
     if (classes){
         classes.forEach(item => {
-            newElement.classList = item
+            console.log(item)
+            newElement.classList.add(item)
         });
     }
     if(id){element.id = id}
-    newElement.textContent = content;
-    return element
+    if (content){
+        newElement.textContent = content;
+    }
+    return newElement
 }
+
+createHeader()
+
+
+export {createElement}

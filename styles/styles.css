@@ -100,7 +100,7 @@ ul {
   flex-direction: column;
 }
 
-.imageBackground {
+body {
   height: 100vh;
   width: 100vw;
   background-size: cover;

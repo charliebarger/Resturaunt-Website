@@ -2,6 +2,33 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/createBody.js":
+/*!***************************!*\
+  !*** ./src/createBody.js ***!
+  \***************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createContentbox": () => /* binding */ createContentbox
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+/* harmony import */ var _createHeader__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createHeader */ "./src/createHeader.js");
+
+
+
+function createContentbox(){
+    let main = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('main')
+    _createHeader__WEBPACK_IMPORTED_MODULE_1__.body.appendChild(main)
+    let box = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['pageContentwrapper'])
+    main.appendChild(box)
+    return box 
+}
+
+
+
+/***/ }),
+
 /***/ "./src/createHeader.js":
 /*!*****************************!*\
   !*** ./src/createHeader.js ***!
@@ -10,7 +37,8 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createHeader": () => /* binding */ createHeader
+/* harmony export */   "createHeader": () => /* binding */ createHeader,
+/* harmony export */   "body": () => /* binding */ body
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
 
@@ -54,6 +82,49 @@ let createHeader = () => {
 
 /***/ }),
 
+/***/ "./src/homepage.js":
+/*!*************************!*\
+  !*** ./src/homepage.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createHeader": () => /* binding */ createHeader,
+/* harmony export */   "createBody": () => /* binding */ createBody
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+
+
+function createHeader() {
+    let heading = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h3', '', '', "Welcome to C & C's <br> Oyster Bar!")
+    let subHeading = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', '', '', 'Proudly Serving Appalachicola Bay Oysters' ) 
+    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(heading, subHeading)
+}
+
+function createBody(params) {
+    let bodyWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section',['moreInfo'])
+    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(bodyWrapper)
+    let contactInfo = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['contactInfo'])
+    bodyWrapper.appendChild(contactInfo)
+    let address = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('address', '', '', '48 6th Street, Applachicola, Fl')
+    contactInfo.appendChild(address)
+    
+    let hours = ['Mon-Sat: 11am to 10pm', 'Sunday: 10am to 9pm' ]
+
+    hours.forEach(hour => {
+        let businessHours = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','', hour)
+        contactInfo.appendChild(businessHours)
+    })
+
+    let menuButton = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('button', ['formatButton'], '', 'View Our Menu')
+    bodyWrapper.appendChild(menuButton)
+}
+
+
+
+/***/ }),
+
 /***/ "./src/index.js":
 /*!**********************!*\
   !*** ./src/index.js ***!
@@ -62,9 +133,14 @@ let createHeader = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createElement": () => /* binding */ createElement
+/* harmony export */   "createElement": () => /* binding */ createElement,
+/* harmony export */   "grabBox": () => /* binding */ grabBox
 /* harmony export */ });
 /* harmony import */ var _createHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createHeader */ "./src/createHeader.js");
+/* harmony import */ var _createBody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createBody */ "./src/createBody.js");
+/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./homepage */ "./src/homepage.js");
+
+
 
 
 function createElement(type, classes, id,content) {
@@ -77,13 +153,15 @@ function createElement(type, classes, id,content) {
     }
     if(id){element.id = id}
     if (content){
-        newElement.textContent = content;
+        newElement.innerHTML = content;
     }
     return newElement
 }
 
-(0,_createHeader__WEBPACK_IMPORTED_MODULE_0__.createHeader)()
-
+(0,_createHeader__WEBPACK_IMPORTED_MODULE_0__.createHeader)();
+let grabBox = (0,_createBody__WEBPACK_IMPORTED_MODULE_1__.createContentbox)();
+(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHeader)()
+;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createBody)()
 
 
 

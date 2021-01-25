@@ -1,4 +1,6 @@
 import {createHeader} from './createHeader'
+import {createContentbox} from './createBody'
+import {createHeader as homeHeader, createBody as homeBody} from './homepage'
 
 function createElement(type, classes, id,content) {
     let newElement = document.createElement(type);
@@ -10,12 +12,14 @@ function createElement(type, classes, id,content) {
     }
     if(id){element.id = id}
     if (content){
-        newElement.textContent = content;
+        newElement.innerHTML = content;
     }
     return newElement
 }
 
-createHeader()
+createHeader();
+let grabBox = createContentbox();
+homeHeader()
+homeBody()
 
-
-export {createElement}
+export {createElement, grabBox}

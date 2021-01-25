@@ -35,4 +35,4 @@ let createHeader = () => {
 }
 
 
-export {createHeader}
+export {createHeader, body}

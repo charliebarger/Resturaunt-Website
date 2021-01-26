@@ -66,10 +66,12 @@ let createHeader = () => {
         header.appendChild(nav)
         let list = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('ul')
         nav.appendChild(list)
-        let navItems = ['Home', 'Menu', 'About', 'Contact']
+        let navItems = [{content: 'Home', id: 'home' }, {content: 'Menu', id: 'menu'}, {content: 'About', id: 'about'}, {content: 'Contact', id: 'menu'}]
 
         navItems.forEach(item => {
-            list.appendChild((0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('li', ['navButton'], '', item))
+            console.log(item.id)
+            console.log(item.content)
+            list.appendChild((0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('li', ['navButton'], item.id , item.content))
         });
     }
 
@@ -139,19 +141,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _createHeader__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createHeader */ "./src/createHeader.js");
 /* harmony import */ var _createBody__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./createBody */ "./src/createBody.js");
 /* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./homepage */ "./src/homepage.js");
+/* harmony import */ var _removeItems__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./removeItems */ "./src/removeItems.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./menu */ "./src/menu.js");
 
 
 
 
-function createElement(type, classes, id,content) {
+
+
+function createElement(type, classes, id ,content) {
     let newElement = document.createElement(type);
     if (classes){
         classes.forEach(item => {
             console.log(item)
             newElement.classList.add(item)
         });
-    }
-    if(id){element.id = id}
+    } 
+    if(id){newElement.id = id}
     if (content){
         newElement.innerHTML = content;
     }
@@ -162,6 +168,92 @@ function createElement(type, classes, id,content) {
 let grabBox = (0,_createBody__WEBPACK_IMPORTED_MODULE_1__.createContentbox)();
 (0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHeader)()
 ;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createBody)()
+
+document.getElementById('menu').addEventListener('click', function(){
+    ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
+    ;(0,_menu__WEBPACK_IMPORTED_MODULE_4__.createHeader)(grabBox)
+    let starters = new _menu__WEBPACK_IMPORTED_MODULE_4__.menuSection(grabBox, 'Starters')
+    starters.createSubheader(starters.subheader)
+})
+
+document.getElementById('home').addEventListener('click', () => {
+    ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
+    ;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHeader)()
+    ;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createBody)()
+})
+
+
+
+/***/ }),
+
+/***/ "./src/menu.js":
+/*!*********************!*\
+  !*** ./src/menu.js ***!
+  \*********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "createHeader": () => /* binding */ createHeader,
+/* harmony export */   "menuSection": () => /* binding */ menuSection
+/* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+
+
+function createHeader(body) {
+    let header = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h3', ['menuHeader'], '', 'Menu')
+    body.appendChild(header)
+}
+
+class menuSection {
+    constructor(body, subheader){
+        this.body = body
+        this.subheader = subheader
+    }
+    
+
+    createSubheader(text) {
+        alert(text)
+        let section = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section', ['menuSection'])
+        this.body.appendChild(section)
+        let sectionHeader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', ['menuSectionHeader'], '', text)
+        section.appendChild(sectionHeader)
+        let wrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['menuItems'])
+        sectionHeader.appendChild(wrapper)
+        return wrapper
+    }
+    
+    createItem(item, description, parent, id) {
+        let identifier = id ? id : '';
+        let itemWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['item'], identifier)
+        parent.appendChild(itemWrapper)
+        let menuItem = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span',['singleITem'], '', item)
+        let itemDescription = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', ['itemDescription'], '', description )
+        itemWrapper.append(menuItem, itemDescription)
+    }
+}
+
+let starters = new menuSection()
+
+
+
+/***/ }),
+
+/***/ "./src/removeItems.js":
+/*!****************************!*\
+  !*** ./src/removeItems.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "removeChildren": () => /* binding */ removeChildren
+/* harmony export */ });
+function removeChildren(parent){
+    while (parent.firstChild){
+        parent.firstChild.remove()
+    }
+}
 
 
 

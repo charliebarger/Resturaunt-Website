@@ -23,10 +23,12 @@ let createHeader = () => {
         header.appendChild(nav)
         let list = createElement('ul')
         nav.appendChild(list)
-        let navItems = ['Home', 'Menu', 'About', 'Contact']
+        let navItems = [{content: 'Home', id: 'home' }, {content: 'Menu', id: 'menu'}, {content: 'About', id: 'about'}, {content: 'Contact', id: 'menu'}]
 
         navItems.forEach(item => {
-            list.appendChild(createElement('li', ['navButton'], '', item))
+            console.log(item.id)
+            console.log(item.content)
+            list.appendChild(createElement('li', ['navButton'], item.id , item.content))
         });
     }
 

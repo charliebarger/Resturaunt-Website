@@ -117,7 +117,7 @@ main {
 }
 
 .pageContentwrapper {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255);
   border-radius: 10px;
   border: solid 2px var(--blue);
   width: 80vw;
@@ -128,6 +128,10 @@ main {
   display: flex;
   flex-direction: column;
   margin: 30px;
+}
+
+.pageContentwrapper > * {
+  margin: 10px;
 }
 
 h4 {
@@ -164,8 +168,59 @@ h4 {
   box-shadow: 5px 5px 15px 5px #000000;
 }
 
+h3 {
+  font-size: 52px;
+}
+
 .moreInfo > * {
   margin: 15px;
+}
+
+/* menu page */
+
+.menuSectionHeader {
+  font-size: 32px;
+  color: var(--blue);
+}
+.menuSectionSubheader {
+  font-size: 24px;
+}
+
+.menuItems {
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.menuItems > * {
+  margin: 15px;
+  font-size: 22px;
+  flex: 1;
+  flex-basis: 44%;
+}
+
+.noWrap {
+  flex-basis: 10%;
+}
+.item {
+  display: flex;
+  flex-direction: column;
+}
+
+.singleITem {
+  font-size: 22px;
+  color: var(--purple);
+}
+
+.itemDescription {
+  margin: 5px;
+  font-size: 18px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: bold;
 }
 
 @media (min-width: 500px) {

@@ -2,7 +2,7 @@ import {createHeader} from './createHeader'
 import {createContentbox} from './createBody'
 import {createHeader as homeHeader, createBody as homeBody} from './homepage'
 import {removeChildren} from './removeItems'
-import {createHeader as menuHeader, menuSection} from './menu'
+import {createHeader as menuHeader, createNewSection, menuSection} from './menu'
 
 function createElement(type, classes, id ,content) {
     let newElement = document.createElement(type);
@@ -26,9 +26,7 @@ homeBody()
 
 document.getElementById('menu').addEventListener('click', function(){
     removeChildren(grabBox)
-    menuHeader(grabBox)
-    let starters = new menuSection(grabBox, 'Starters')
-    starters.createSubheader(starters.subheader)
+    createNewSection(grabBox)
 })
 
 document.getElementById('home').addEventListener('click', () => {

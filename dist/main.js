@@ -171,9 +171,7 @@ let grabBox = (0,_createBody__WEBPACK_IMPORTED_MODULE_1__.createContentbox)();
 
 document.getElementById('menu').addEventListener('click', function(){
     ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
-    ;(0,_menu__WEBPACK_IMPORTED_MODULE_4__.createHeader)(grabBox)
-    let starters = new _menu__WEBPACK_IMPORTED_MODULE_4__.menuSection(grabBox, 'Starters')
-    starters.createSubheader(starters.subheader)
+    ;(0,_menu__WEBPACK_IMPORTED_MODULE_4__.createNewSection)(grabBox)
 })
 
 document.getElementById('home').addEventListener('click', () => {
@@ -195,7 +193,8 @@ document.getElementById('home').addEventListener('click', () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createHeader": () => /* binding */ createHeader,
-/* harmony export */   "menuSection": () => /* binding */ menuSection
+/* harmony export */   "menuSection": () => /* binding */ menuSection,
+/* harmony export */   "createNewSection": () => /* binding */ createNewSection
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
 
@@ -206,34 +205,73 @@ function createHeader(body) {
 }
 
 class menuSection {
-    constructor(body, subheader){
+    constructor(body,header, subheader){
         this.body = body
+        this.header = header
         this.subheader = subheader
     }
     
 
-    createSubheader(text) {
-        alert(text)
+    createSubheader() {
         let section = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section', ['menuSection'])
         this.body.appendChild(section)
-        let sectionHeader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', ['menuSectionHeader'], '', text)
-        section.appendChild(sectionHeader)
+        let sectionHeader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', ['menuSectionHeader'], '',this.header);
+        if (this.subheader){
+            let sectionSubHeader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h5', ['menuSectionSubheader'], '', this.subheader)
+            section.append(sectionHeader, sectionSubHeader)
+        }
+        else{
+            section.append(sectionHeader)
+        }
+        console.log('creating wrapper')
         let wrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['menuItems'])
-        sectionHeader.appendChild(wrapper)
+        section.appendChild(wrapper)
         return wrapper
-    }
-    
-    createItem(item, description, parent, id) {
-        let identifier = id ? id : '';
-        let itemWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['item'], identifier)
-        parent.appendChild(itemWrapper)
-        let menuItem = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span',['singleITem'], '', item)
-        let itemDescription = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', ['itemDescription'], '', description )
-        itemWrapper.append(menuItem, itemDescription)
     }
 }
 
-let starters = new menuSection()
+class newMenuItem{
+    constructor(parent, header, subheader, price, id){
+        this.parent = parent;
+        this.header = header;
+        this.subheader = subheader ? subheader + ' ' + `<bold>${price}</bold>` : `<bold>${price}</bold>`
+        this.id = id;
+    }
+    
+    createItem() {
+        let itemWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['item'], this.id)
+        this.parent.appendChild(itemWrapper)
+        let menuItem = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span',['singleITem'], '', this.header)
+        let itemDescription = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', ['itemDescription'], '', this.subheader )
+        itemWrapper.append(menuItem, itemDescription)
+    }
+
+}
+
+function createNewSection(body) {
+    createHeader(body)
+
+    let starters = {header: 'Starters', subheader: '', items: [{item: "Fried Crab Claws", description: "Fried and Served with Cocktail Sauce", price: "MKT" },{item: "Peel & Eat Shrimp", description: "Steamed to Order", price: "$11"},{item: "Hush Puppies", description: "Fried to Perfection", price: "$6"},{item: "Jalapeno Poppers", description: "Filled with Cream Cheese, Wrapped with Bacon", price: "$9"}]}
+
+    let oysters = {header: 'Appalachicola Bay Oysters', subheader: "(Served Raw or Steamed on the Half Shell", items: [{item: "Bucket", price: "$13.50", id: 'noWrap'}, {item: "Dozen", price: "$39", id: 'noWrap'}]}
+
+    let fullMenu = [starters, oysters]
+
+    fullMenu.forEach(menuItems => {
+        let newMenuSection = new menuSection(body,menuItems.header, menuItems.subheader)
+        let parent = newMenuSection.createSubheader()
+
+
+        menuItems.items.forEach(part => {
+            console.log(parent)
+            let newSection = new newMenuItem(parent, part.item, part.description, part.price, part.id)
+            newSection.createItem()
+        })
+
+    }
+    )
+}
+
 
 
 

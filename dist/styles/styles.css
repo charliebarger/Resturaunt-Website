@@ -175,6 +175,15 @@ h4 {
 
 /* menu page */
 
+#changeBasis {
+  flex-basis: 22%;
+}
+
+.menuHeader {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
 .menuSectionHeader {
   font-size: 32px;
   color: var(--blue);

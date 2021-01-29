@@ -264,6 +264,14 @@ figcaption {
   font-size: 30px;
 }
 
+.contactUs {
+  font-size: 22px;
+  flex: 1;
+}
+
+.contactUs > a {
+  color: var(--blue);
+}
 @media (min-width: 500px) {
   ul {
     margin-right: 30px;

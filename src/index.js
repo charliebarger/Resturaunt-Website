@@ -3,6 +3,8 @@ import {createContentbox} from './createBody'
 import {createHeader as homeHeader, createBody as homeBody} from './homepage'
 import {removeChildren} from './removeItems'
 import {createHeader as menuHeader, createNewSection, menuSection} from './menu'
+import {addInfo as aboutContent} from './about'
+import {createElements} from './contact'
 
 function createElement(type, classes, id ,content) {
     let newElement = document.createElement(type);
@@ -23,6 +25,17 @@ createHeader();
 let grabBox = createContentbox();
 homeHeader()
 homeBody()
+
+document.getElementById('contact').addEventListener('click', () => {
+    removeChildren(grabBox)
+    createElements()
+})
+
+
+document.getElementById('about').addEventListener('click', () => {
+    removeChildren(grabBox)
+    aboutContent()
+})
 
 document.getElementById('menu').addEventListener('click', function(){
     removeChildren(grabBox)

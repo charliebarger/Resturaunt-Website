@@ -1,7 +1,7 @@
 import {createElement} from './index'
 
 function createHeader(body) {
-    let header = createElement('h3', ['menuHeader'], '', 'Menu')
+    let header = createElement('h3', ['menuHeader', "menuAboutContact"], '', 'Menu')
     body.appendChild(header)
 }
 

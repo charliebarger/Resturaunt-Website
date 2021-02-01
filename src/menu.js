@@ -17,7 +17,6 @@ let sides = {header: 'Sides', subheader: "", items: [{item: "Cole Slaw", price: 
 //class to create each section header and wrapper to append menu items to 
 
 class menuSection {
-
     constructor(header, subheader){
         this.header = header
         this.subheader = subheader
@@ -43,7 +42,6 @@ class menuSection {
 //creates and appends menu items
 
 class menuItem{
-
     constructor(parent, header, subheader, price, id){
         this.parent = parent;
         this.header = header;

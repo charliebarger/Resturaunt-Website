@@ -17,6 +17,7 @@ let sides = {header: 'Sides', subheader: "", items: [{item: "Cole Slaw", price: 
 //class to create each section header and wrapper to append menu items to 
 
 class menuSection {
+
     constructor(header, subheader){
         this.header = header
         this.subheader = subheader
@@ -42,6 +43,7 @@ class menuSection {
 //creates and appends menu items
 
 class menuItem{
+
     constructor(parent, header, subheader, price, id){
         this.parent = parent;
         this.header = header;
@@ -56,13 +58,11 @@ class menuItem{
         let itemDescription = createElement('span', ['itemDescription'], '', this.subheader )
         itemWrapper.append(menuItem, itemDescription)
     }
-
 }
 
 //loops through array of objects and creates a new instance of menuSection then new instances of menuItem
 
 function createNewSection() {
-    createHeader('Menu', ['menuHeader', "menuAboutContact"])
     let fullMenu = [starters, oysters, clams, dinners, sides]
     fullMenu.forEach(menuItems => {
         let newMenuSection = new menuSection(menuItems.header, menuItems.subheader)
@@ -74,5 +74,10 @@ function createNewSection() {
     })
 }
 
+function createMenuPage() {
+    createHeader('Menu', ['menuHeader', "menuAboutContact"]);
+    createNewSection()
+}
 
-export {createNewSection}
+
+export {createMenuPage}

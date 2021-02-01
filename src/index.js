@@ -2,9 +2,9 @@ import {createHeader} from './createHeader'
 import {createContentbox} from './createBody'
 import {createHome, createHomePage} from './homepage'
 import {removeChildren} from './removeItems'
-import {createHeader as menuHeader, createNewSection, menuSection} from './menu'
-import {addInfo as aboutContent} from './about'
-import {createElements} from './contact'
+import {createMenuPage} from './menu'
+import {addInfo as aboutContent, createAboutPage} from './about'
+import {createContactPage} from './contact'
 
 function createElement(type, classes, id ,content) {
     let newElement = document.createElement(type);
@@ -26,18 +26,18 @@ createHomePage()
 
 document.getElementById('contact').addEventListener('click', () => {
     removeChildren(grabBox)
-    createElements()
+    createContactPage()
 })
 
 
 document.getElementById('about').addEventListener('click', () => {
     removeChildren(grabBox)
-    aboutContent()
+    createAboutPage()
 })
 
 document.getElementById('menu').addEventListener('click', function(){
     removeChildren(grabBox)
-    createNewSection(grabBox)
+    createMenuPage()
 })
 
 document.getElementById('home').addEventListener('click', () => {

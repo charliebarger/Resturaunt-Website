@@ -1,28 +1,28 @@
 import {grabBox, createElement} from './index'
+import {createHeader} from './removeItems'
 
-function createHeader() {
-    let heading = createElement('h3', '', '', "Welcome to C & C's <br> Oyster Bar!")
-    let subHeading = createElement('h4', '', '', 'Proudly Serving Appalachicola Bay Oysters' ) 
-    grabBox.append(heading, subHeading)
+function appendHours(parent){
+    let hours = ['Mon-Sat: 11am to 10pm', 'Sunday: 10am to 9pm' ]
+    hours.forEach(hour => {
+        let businessHours = createElement('span','','', hour)
+        parent.appendChild(businessHours)
+    })
 }
 
-function createBody(params) {
+function createHomeBody() {
     let bodyWrapper = createElement('section',['moreInfo'])
     grabBox.append(bodyWrapper)
     let contactInfo = createElement('div', ['contactInfo'])
-    bodyWrapper.appendChild(contactInfo)
     let address = createElement('address', '', '', '48 6th Street, Applachicola, Fl')
     contactInfo.appendChild(address)
-    
-    let hours = ['Mon-Sat: 11am to 10pm', 'Sunday: 10am to 9pm' ]
-
-    hours.forEach(hour => {
-        let businessHours = createElement('span','','', hour)
-        contactInfo.appendChild(businessHours)
-    })
-
+    appendHours(contactInfo)
     let menuButton = createElement('button', ['formatButton'], '', 'View Our Menu')
-    bodyWrapper.appendChild(menuButton)
+    bodyWrapper.append(contactInfo, menuButton)
 }
 
-export {createHeader, createBody}
+function createHomePage() {
+    createHeader("Welcome to C & C's <br> Oyster Bar!", '', "Proudly Serving Appalachicola Bay Oysters")
+    createHomeBody()
+}
+
+export {createHomePage}

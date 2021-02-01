@@ -219,35 +219,35 @@ let createHeader = () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createHeader": () => /* binding */ createHeader,
-/* harmony export */   "createBody": () => /* binding */ createBody
+/* harmony export */   "createHomePage": () => /* binding */ createHomePage
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+/* harmony import */ var _removeItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./removeItems */ "./src/removeItems.js");
 
 
-function createHeader() {
-    let heading = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h3', '', '', "Welcome to C & C's <br> Oyster Bar!")
-    let subHeading = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', '', '', 'Proudly Serving Appalachicola Bay Oysters' ) 
-    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(heading, subHeading)
+
+function appendHours(parent){
+    let hours = ['Mon-Sat: 11am to 10pm', 'Sunday: 10am to 9pm' ]
+    hours.forEach(hour => {
+        let businessHours = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','', hour)
+        parent.appendChild(businessHours)
+    })
 }
 
-function createBody(params) {
+function createHomeBody() {
     let bodyWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section',['moreInfo'])
     _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(bodyWrapper)
     let contactInfo = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['contactInfo'])
-    bodyWrapper.appendChild(contactInfo)
     let address = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('address', '', '', '48 6th Street, Applachicola, Fl')
     contactInfo.appendChild(address)
-    
-    let hours = ['Mon-Sat: 11am to 10pm', 'Sunday: 10am to 9pm' ]
-
-    hours.forEach(hour => {
-        let businessHours = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','', hour)
-        contactInfo.appendChild(businessHours)
-    })
-
+    appendHours(contactInfo)
     let menuButton = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('button', ['formatButton'], '', 'View Our Menu')
-    bodyWrapper.appendChild(menuButton)
+    bodyWrapper.append(contactInfo, menuButton)
+}
+
+function createHomePage() {
+    (0,_removeItems__WEBPACK_IMPORTED_MODULE_1__.createHeader)("Welcome to C & C's <br> Oyster Bar!", '', "Proudly Serving Appalachicola Bay Oysters")
+    createHomeBody()
 }
 
 
@@ -284,7 +284,6 @@ function createElement(type, classes, id ,content) {
     let newElement = document.createElement(type);
     if (classes){
         classes.forEach(item => {
-            console.log(item)
             newElement.classList.add(item)
         });
     } 
@@ -297,8 +296,7 @@ function createElement(type, classes, id ,content) {
 
 (0,_createHeader__WEBPACK_IMPORTED_MODULE_0__.createHeader)();
 let grabBox = (0,_createBody__WEBPACK_IMPORTED_MODULE_1__.createContentbox)();
-(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHeader)()
-;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createBody)()
+(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHomePage)()
 
 document.getElementById('contact').addEventListener('click', () => {
     ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
@@ -318,8 +316,7 @@ document.getElementById('menu').addEventListener('click', function(){
 
 document.getElementById('home').addEventListener('click', () => {
     ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
-    ;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHeader)()
-    ;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createBody)()
+    ;(0,_homepage__WEBPACK_IMPORTED_MODULE_2__.createHomePage)()
 })
 
 
@@ -334,29 +331,37 @@ document.getElementById('home').addEventListener('click', () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createHeader": () => /* binding */ createHeader,
-/* harmony export */   "menuSection": () => /* binding */ menuSection,
 /* harmony export */   "createNewSection": () => /* binding */ createNewSection
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+/* harmony import */ var _removeItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./removeItems */ "./src/removeItems.js");
 
 
-function createHeader(body) {
-    let header = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h3', ['menuHeader', "menuAboutContact"], '', 'Menu')
-    body.appendChild(header)
-}
+
+//Menu Items
+
+let starters = {header: 'Starters', subheader: '', items: [{item: "Fried Crab Claws", description: "Fried and Served with Cocktail Sauce", price: "MKT" },{item: "Peel & Eat Shrimp", description: "Steamed to Order", price: "$11"},{item: "Hush Puppies", description: "Fried to Perfection", price: "$6"},{item: "Jalapeno Poppers", description: "Filled with Cream Cheese, Wrapped with Bacon", price: "$9"}]}
+
+let oysters = {header: 'Appalachicola Bay Oysters', subheader: "(Served Raw or Steamed on the Half Shell)", items: [{item: "Dozen", price: "$13.50", id: 'noWrap'}, {item: "Bucket", price: "$39", id: 'noWrap'}]}
+
+let clams = {header: 'Steamed Clams', subheader: "", items: [{item: "Dozen", price: "$10", id: 'noWrap'}, {item: "Bucket", price: "$30", id: 'noWrap'}]}
+
+let dinners = {header: 'Seafood Dinners', subheader: '(Served with Youre Choice of 2 Sides)', items: [{item: "Fried Mullet", description: "Caught Locally and Fried to Perfection", price: "$11" },{item: "Steamed Blue Crabs", description: "Caught Locally, Served in Garlic Butter", price: "$13"},{item: "Garlic Shrimp", description: "Steamed and Served in Garlic Butter", price: "$12"},{item: "Bay Scallops", description: "Florida Gulf Scallops Served in Lemon Garlic Butter", price: "$20"},{item: "Grouper Fingers", description: "Fried to Perfection", price: "$10"},{item: "Fried Catfish", description: "Sourced Locally from Lake Talquin", price: "$10"}]}
+
+let sides = {header: 'Sides', subheader: "", items: [{item: "Cole Slaw", price: "$4",id: 'changeBasis'}, {item: "Onion Rings", price: "$7",id: 'changeBasis'}, {item: "French Fries", price: "$6",id: 'changeBasis'}, {item: "Grits", price: "$5",id: 'changeBasis'}, {item: "Mac N Cheese", price: "$8",id: 'changeBasis'}, {item: "Corn", price: "$5",id: 'changeBasis'}]}
+
+
+//class to create each section header and wrapper to append menu items to 
 
 class menuSection {
-    constructor(body,header, subheader){
-        this.body = body
+    constructor(header, subheader){
         this.header = header
         this.subheader = subheader
     }
     
-
     createSubheader() {
         let section = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section', ['menuSection'])
-        this.body.appendChild(section)
+        _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.appendChild(section)
         let sectionHeader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', ['menuSectionHeader'], '',this.header);
         if (this.subheader){
             let sectionSubHeader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h5', ['menuSectionSubheader'], '', this.subheader)
@@ -365,14 +370,15 @@ class menuSection {
         else{
             section.append(sectionHeader)
         }
-        console.log('creating wrapper')
         let wrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['menuItems'])
         section.appendChild(wrapper)
         return wrapper
     }
 }
 
-class newMenuItem{
+//creates and appends menu items
+
+class menuItem{
     constructor(parent, header, subheader, price, id){
         this.parent = parent;
         this.header = header;
@@ -390,34 +396,19 @@ class newMenuItem{
 
 }
 
-function createNewSection(body) {
-    createHeader(body)
+//loops through array of objects and creates a new instance of menuSection then new instances of menuItem
 
-    let starters = {header: 'Starters', subheader: '', items: [{item: "Fried Crab Claws", description: "Fried and Served with Cocktail Sauce", price: "MKT" },{item: "Peel & Eat Shrimp", description: "Steamed to Order", price: "$11"},{item: "Hush Puppies", description: "Fried to Perfection", price: "$6"},{item: "Jalapeno Poppers", description: "Filled with Cream Cheese, Wrapped with Bacon", price: "$9"}]}
-
-    let oysters = {header: 'Appalachicola Bay Oysters', subheader: "(Served Raw or Steamed on the Half Shell)", items: [{item: "Dozen", price: "$13.50", id: 'noWrap'}, {item: "Bucket", price: "$39", id: 'noWrap'}]}
-
-    let clams = {header: 'Steamed Clams', subheader: "", items: [{item: "Dozen", price: "$10", id: 'noWrap'}, {item: "Bucket", price: "$30", id: 'noWrap'}]}
-
-    let dinners = {header: 'Seafood Dinners', subheader: '(Served with Youre Choice of 2 Sides)', items: [{item: "Fried Mullet", description: "Caught Locally and Fried to Perfection", price: "$11" },{item: "Steamed Blue Crabs", description: "Caught Locally, Served in Garlic Butter", price: "$13"},{item: "Garlic Shrimp", description: "Steamed and Served in Garlic Butter", price: "$12"},{item: "Bay Scallops", description: "Florida Gulf Scallops Served in Lemon Garlic Butter", price: "$20"},{item: "Grouper Fingers", description: "Fried to Perfection", price: "$10"},{item: "Fried Catfish", description: "Sourced Locally from Lake Talquin", price: "$10"}]}
-
-   let sides = {header: 'Sides', subheader: "", items: [{item: "Cole Slaw", price: "$4",id: 'changeBasis'}, {item: "Onion Rings", price: "$7",id: 'changeBasis'}, {item: "French Fries", price: "$6",id: 'changeBasis'}, {item: "Grits", price: "$5",id: 'changeBasis'}, {item: "Mac N Cheese", price: "$8",id: 'changeBasis'}, {item: "Corn", price: "$5",id: 'changeBasis'}]}
-
+function createNewSection() {
+    (0,_removeItems__WEBPACK_IMPORTED_MODULE_1__.createHeader)('Menu', ['menuHeader', "menuAboutContact"])
     let fullMenu = [starters, oysters, clams, dinners, sides]
-
     fullMenu.forEach(menuItems => {
-        let newMenuSection = new menuSection(body,menuItems.header, menuItems.subheader)
+        let newMenuSection = new menuSection(menuItems.header, menuItems.subheader)
         let parent = newMenuSection.createSubheader()
-
-
         menuItems.items.forEach(part => {
-            console.log(parent)
-            let newSection = new newMenuItem(parent, part.item, part.description, part.price, part.id)
+            let newSection = new menuItem(parent, part.item, part.description, part.price, part.id)
             newSection.createItem()
         })
-
-    }
-    )
+    })
 }
 
 
@@ -433,12 +424,26 @@ function createNewSection(body) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "removeChildren": () => /* binding */ removeChildren
+/* harmony export */   "removeChildren": () => /* binding */ removeChildren,
+/* harmony export */   "createHeader": () => /* binding */ createHeader
 /* harmony export */ });
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+
+
 function removeChildren(parent){
     while (parent.firstChild){
         parent.firstChild.remove()
     }
+}
+
+function createHeader(headerContent, headerClasses, subheaderContent) {
+    let header = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h3', headerClasses, '', headerContent)
+    if (subheaderContent){
+        let subheader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', '', '', subheaderContent)
+        _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(header, subheader)
+        return
+    }
+    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.appendChild(header)
 }
 
 

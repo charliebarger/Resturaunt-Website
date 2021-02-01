@@ -1,6 +1,6 @@
 import {createHeader} from './createHeader'
 import {createContentbox} from './createBody'
-import {createHeader as homeHeader, createBody as homeBody} from './homepage'
+import {createHome, createHomePage} from './homepage'
 import {removeChildren} from './removeItems'
 import {createHeader as menuHeader, createNewSection, menuSection} from './menu'
 import {addInfo as aboutContent} from './about'
@@ -10,7 +10,6 @@ function createElement(type, classes, id ,content) {
     let newElement = document.createElement(type);
     if (classes){
         classes.forEach(item => {
-            console.log(item)
             newElement.classList.add(item)
         });
     } 
@@ -23,8 +22,7 @@ function createElement(type, classes, id ,content) {
 
 createHeader();
 let grabBox = createContentbox();
-homeHeader()
-homeBody()
+createHomePage()
 
 document.getElementById('contact').addEventListener('click', () => {
     removeChildren(grabBox)
@@ -44,8 +42,7 @@ document.getElementById('menu').addEventListener('click', function(){
 
 document.getElementById('home').addEventListener('click', () => {
     removeChildren(grabBox)
-    homeHeader()
-    homeBody()
+    createHomePage()
 })
 
 export {createElement, grabBox}

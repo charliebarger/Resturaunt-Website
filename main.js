@@ -119,7 +119,7 @@ function createElements() {
         anchor1.href = "tel:407-383-3475";
         let span2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','', "Email")
         let anchor2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('a', '', '', 'Send Us An Email')
-        span2.href = "mailto: abc@example.com"
+        anchor2.href = "mailto: abc@example.com"
         wrapper.phoneWrapper.append(span1, anchor1, span2, anchor2)
     }
 

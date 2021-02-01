@@ -10,62 +10,51 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "addInfo": () => /* binding */ addInfo
+/* harmony export */   "createAboutPage": () => /* binding */ createAboutPage
 /* harmony export */ });
-/* harmony import */ var _homepage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./homepage */ "./src/homepage.js");
-/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./index */ "./src/index.js");
+/* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+/* harmony import */ var _removeItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./removeItems */ "./src/removeItems.js");
 
 
 
-
-function createChildrenOfContent() {
-    let header = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('h3', ["menuAboutContact"], '', 'About');
-    let section = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('section');
-    _index__WEBPACK_IMPORTED_MODULE_1__.grabBox.append(header, section)
-    return section
-}
 
 function createWrappers() {
-    let sectionWrapper = createChildrenOfContent()
-    let infoWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('div',['aboutText'])
-    let aboutImageWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('section', ['aboutImageWrapper'] )
-    sectionWrapper.append(infoWrapper, aboutImageWrapper)
+    let infoWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div',['aboutText'])
+    let aboutImageWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section', ['aboutImageWrapper'] )
+    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(infoWrapper, aboutImageWrapper)
     return {infoWrapper, aboutImageWrapper}
 }
 
-function addInfo() {
-    let wrapper = createWrappers()
-    companyInfo()
-    function companyInfo() {
-        let parent = wrapper.infoWrapper
-        let subheader = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('p', '', 'petitionHeader', "C & C's Oyster Bar was established in 1996 by a pair of seafood lovers, for seafood lovers. We believe Appalachicola Bay oysters are the best in the world and we are proud to serve fresh local seafood daily!")
-        parent.appendChild(subheader)
-    }
+function companyInfo(wrapper) {
+    let aboutUs = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('p', '','petitionHeader', "C & C's Oyster Bar wasestablished in 1996 by a pair of seafood lovers,for seafood lovers. We believe Appalachicola Bayoysters are the best in the world and we areproud to serve fresh local seafood daily!")
+    wrapper.infoWrapper.appendChild(aboutUs)
+}
 
-    let bayInfoWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('div', ['bayInfo'])
-    createBayContent()
-    wrapper.aboutImageWrapper.append(bayInfoWrapper)
+function createBayContent(wrapper) {
+    let bayInfoWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div',['bayInfo']);
+    wrapper.aboutImageWrapper.append(bayInfoWrapper);
+    let subheader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', '','petitionHeader', "Our Bay is in Danger!")
+    let content = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('p', '', '', "Thelack of freshwater flowing into our bay iskilling our oysters and our way of life. Pleasehelp by signing this petition to increase thefreshwater flowing out of the AppalachicoaRiver" )
+    let button = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('button',['formatButton'], '', "Save Our Bay")
+    bayInfoWrapper.append(subheader, content, button)
+}
 
-    function createBayContent(params) {
-        let subheader = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('h4', '', 'petitionHeader', "Our Bay is in Danger!")
-        let content = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('p', '', '', "The lack of freshwater flowing into our bay is killing our oysters and our way of life. Please help by signing this petition to increase the freshwater flowing out of the Appalachicoa River" )
-        let button = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('button', ['formatButton'], '', "Save Our Bay")
-        bayInfoWrapper.append(subheader, content, button)
-    }
-
-    let imageWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('figure', ["imageWrapper"] )
-    createImageWrapperContent()
+function createImageWrapperContent(wrapper) {
+    let imageWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('figure',["imageWrapper"] )
     wrapper.aboutImageWrapper.append(imageWrapper)
+    let image = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('img')
+    image.src = "./img/IMG_4390.jpg"
+    image.alt = 'Owners Holding Scallops'
+    let caption = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('figcaption', '','', "Owners Chloe and Charlie holding bayscallops")
+    imageWrapper.append(image, caption)
+}
 
-    function createImageWrapperContent() {
-        let image = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('img')
-        image.src = "./img/IMG_4390.jpg"
-        image.alt = 'Owners Holding Scallops'
-        let caption = (0,_index__WEBPACK_IMPORTED_MODULE_1__.createElement)('figcaption', '', '', "Owners Chloe and Charlie holding bay scallops")
-        imageWrapper.append(image, caption)
-    }
-
-
+function createAboutPage(){
+    (0,_removeItems__WEBPACK_IMPORTED_MODULE_1__.createHeader)('About', ["menuAboutContact"])
+    let wrapper = createWrappers()
+    companyInfo(wrapper)
+    createBayContent(wrapper)
+    createImageWrapperContent(wrapper)
 }
 
 
@@ -80,49 +69,45 @@ function addInfo() {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createElements": () => /* binding */ createElements
+/* harmony export */   "createContactPage": () => /* binding */ createContactPage
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
+/* harmony import */ var _removeItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./removeItems */ "./src/removeItems.js");
 
-
-function createChildren() {
-    let header = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h3',['menuAboutContact'],'zeroPaddingBottom', 'Contact Us');
-    let subheader = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('h4', '', '', 'We Would Love To Hear From You!');
-    let bodyWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section', ['moreInfo']);
-    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(header, subheader, bodyWrapper)
-    return bodyWrapper
-}
 
 
 function createWrappers() {
-    let parent = createChildren()
+    let bodyWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('section', ['moreInfo']);
     let addressWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ["contactInfo", "contactUs"])
     let phoneWrapper = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ["contactInfo", "contactUs"])
-    parent.append(addressWrapper, phoneWrapper)
+    bodyWrapper.append(addressWrapper, phoneWrapper)
+    _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.appendChild(bodyWrapper)
     return {addressWrapper, phoneWrapper}
 }
 
-function createElements() {
-    let wrapper = createWrappers()
-    createAddressElements()
-    createPhoneElements()
-    function createAddressElements(){
-        let address = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('address', '', '', '48 6th Street, Applachicola, Fl' )
-        let span1 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', '', '', "Mon-Sat: 11am to 10pm")
-        let span2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', '', '', "Sunday: 10am to 9pm")
-        wrapper.addressWrapper.append(address, span1, span2)
-    }
-    
-    function createPhoneElements() {
-        let span1 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','','Phone')
-        let anchor1 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('a', '', '', '850-BAY-OYST')
-        anchor1.href = "tel:407-383-3475";
-        let span2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','', "Email")
-        let anchor2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('a', '', '', 'Send Us An Email')
-        anchor2.href = "mailto: abc@example.com"
-        wrapper.phoneWrapper.append(span1, anchor1, span2, anchor2)
-    }
 
+function createAddressElements(wrapper){
+    let address = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('address', '', '','48 6th Street, Applachicola, Fl' )
+    let span1 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', '', '',"Mon-Sat: 11am to 10pm")
+    let span2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', '', '',"Sunday: 10am to 9pm")
+    wrapper.addressWrapper.append(address, span1,span2)
+}
+    
+function createPhoneElements(wrapper) {
+    let span1 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','','Phone')
+    let anchor1 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('a', '', '','850-BAY-OYST')
+    anchor1.href = "tel:407-383-3475";
+    let span2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span','','', "Email")
+    let anchor2 = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('a', '', '', 'Send Us An Email')
+    anchor2.href = "mailto: abc@example.com"
+    wrapper.phoneWrapper.append(span1, anchor1,span2, anchor2)
+}
+
+function createContactPage(){
+    (0,_removeItems__WEBPACK_IMPORTED_MODULE_1__.createHeader)('Contact Us', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
+    let wrapper = createWrappers()
+    createAddressElements(wrapper)
+    createPhoneElements(wrapper)
 }
 
 
@@ -300,18 +285,18 @@ let grabBox = (0,_createBody__WEBPACK_IMPORTED_MODULE_1__.createContentbox)();
 
 document.getElementById('contact').addEventListener('click', () => {
     ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
-    ;(0,_contact__WEBPACK_IMPORTED_MODULE_6__.createElements)()
+    ;(0,_contact__WEBPACK_IMPORTED_MODULE_6__.createContactPage)()
 })
 
 
 document.getElementById('about').addEventListener('click', () => {
     ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
-    ;(0,_about__WEBPACK_IMPORTED_MODULE_5__.addInfo)()
+    ;(0,_about__WEBPACK_IMPORTED_MODULE_5__.createAboutPage)()
 })
 
 document.getElementById('menu').addEventListener('click', function(){
     ;(0,_removeItems__WEBPACK_IMPORTED_MODULE_3__.removeChildren)(grabBox)
-    ;(0,_menu__WEBPACK_IMPORTED_MODULE_4__.createNewSection)(grabBox)
+    ;(0,_menu__WEBPACK_IMPORTED_MODULE_4__.createMenuPage)()
 })
 
 document.getElementById('home').addEventListener('click', () => {
@@ -331,7 +316,7 @@ document.getElementById('home').addEventListener('click', () => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "createNewSection": () => /* binding */ createNewSection
+/* harmony export */   "createMenuPage": () => /* binding */ createMenuPage
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
 /* harmony import */ var _removeItems__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./removeItems */ "./src/removeItems.js");
@@ -354,6 +339,7 @@ let sides = {header: 'Sides', subheader: "", items: [{item: "Cole Slaw", price: 
 //class to create each section header and wrapper to append menu items to 
 
 class menuSection {
+
     constructor(header, subheader){
         this.header = header
         this.subheader = subheader
@@ -379,6 +365,7 @@ class menuSection {
 //creates and appends menu items
 
 class menuItem{
+
     constructor(parent, header, subheader, price, id){
         this.parent = parent;
         this.header = header;
@@ -393,13 +380,11 @@ class menuItem{
         let itemDescription = (0,_index__WEBPACK_IMPORTED_MODULE_0__.createElement)('span', ['itemDescription'], '', this.subheader )
         itemWrapper.append(menuItem, itemDescription)
     }
-
 }
 
 //loops through array of objects and creates a new instance of menuSection then new instances of menuItem
 
 function createNewSection() {
-    (0,_removeItems__WEBPACK_IMPORTED_MODULE_1__.createHeader)('Menu', ['menuHeader', "menuAboutContact"])
     let fullMenu = [starters, oysters, clams, dinners, sides]
     fullMenu.forEach(menuItems => {
         let newMenuSection = new menuSection(menuItems.header, menuItems.subheader)
@@ -409,6 +394,11 @@ function createNewSection() {
             newSection.createItem()
         })
     })
+}
+
+function createMenuPage() {
+    (0,_removeItems__WEBPACK_IMPORTED_MODULE_1__.createHeader)('Menu', ['menuHeader', "menuAboutContact"]);
+    createNewSection()
 }
 
 

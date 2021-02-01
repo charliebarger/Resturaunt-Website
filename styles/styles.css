@@ -286,8 +286,12 @@ figcaption {
   color: var(--blue);
 }
 
-#zeroPaddingBottom {
+.zeroPaddingBottom {
   margin-bottom: 0px;
+}
+
+.contactInfo > * {
+  margin: 2.5px;
 }
 
 @media (min-width: 500px) {

@@ -37,44 +37,40 @@ function createContentbox(){
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "body": () => /* binding */ body,
-/* harmony export */   "createHeader": () => /* binding */ createHeader
+/* harmony export */   "createHeader": () => /* binding */ createHeader,
+/* harmony export */   "body": () => /* binding */ body
 /* harmony export */ });
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../helpers */ "./src/helpers.js");
 
 
-
 let body = document.getElementById('content');
 
+function createLogo(header){
+    let div1 = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['logowapper']);
+    header.appendChild(div1)
+    let div2 = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('div',     ['logo'])
+    div1.appendChild(div2)
+    let logoTop = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('h1','',    '', "C &C's" )
+    let logoBottom = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)  ('h2', '', '',"Oyster Bar")
+    div2.append(logoTop, logoBottom)
+}
+    
+function createNavBar(header) {
+    let nav = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('nav')
+    header.appendChild(nav)
+    let list = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('ul')
+    nav.appendChild(list)
+    let navItems = [{content: 'Home', id: 'home' },{content: 'Menu', id: 'menu'}, {content:'About', id: 'about'}, {content: 'Contact', id:'contact'}]
+    navItems.forEach(item => {
+        list.appendChild((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('li',['navButton'], item.id , item.content))
+    });
+}
 
-let createHeader = () => {
+function createHeader(){
     let header = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('header')
     body.appendChild(header)
-
-    function createLogo(){
-        let div1 = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('div', ['logowapper']);
-        header.appendChild(div1)
-        let div2 = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('div',     ['logo'])
-        div1.appendChild(div2)
-        let logoTop = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('h1','',    '', "C & C's" )
-        let logoBottom = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)  ('h2', '', '', "Oyster Bar")
-        div2.append(logoTop, logoBottom)
-    }
-    
-    function createNavBar() {
-        let nav = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('nav')
-        header.appendChild(nav)
-        let list = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('ul')
-        nav.appendChild(list)
-        let navItems = [{content: 'Home', id: 'home' }, {content: 'Menu', id: 'menu'}, {content: 'About', id: 'about'}, {content: 'Contact', id: 'contact'}]
-
-        navItems.forEach(item => {
-            list.appendChild((0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('li', ['navButton'], item.id , item.content))
-        });
-    }
-
-    createLogo()
-    createNavBar()
+    createLogo(header)
+    createNavBar(header)
 }
 
 
@@ -92,7 +88,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "removeChildren": () => /* binding */ removeChildren,
 /* harmony export */   "createElement": () => /* binding */ createElement,
-/* harmony export */   "createHeader": () => /* binding */ createHeader
+/* harmony export */   "createPageTitle": () => /* binding */ createPageTitle
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index */ "./src/index.js");
 
@@ -117,7 +113,7 @@ function createElement(type, classes, id ,content) {
     return newElement
 }
 
-function createHeader(headerContent, headerClasses, subheaderContent) {
+function createPageTitle(headerContent, headerClasses, subheaderContent) {
     let header = createElement('h3', headerClasses, '', headerContent)
     if (subheaderContent){
         let subheader = createElement('h4', '', '', subheaderContent)
@@ -161,23 +157,19 @@ let grabBox = (0,_fixed_page_elements_createBody__WEBPACK_IMPORTED_MODULE_1__.cr
 (0,_pages_home__WEBPACK_IMPORTED_MODULE_3__.createHomePage)()
 
 document.getElementById('contact').addEventListener('click', () => {
-    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_2__.removeChildren)(grabBox)
     ;(0,_pages_contact__WEBPACK_IMPORTED_MODULE_6__.createContactPage)()
 })
 
-
 document.getElementById('about').addEventListener('click', () => {
-    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_2__.removeChildren)(grabBox)
     ;(0,_pages_about__WEBPACK_IMPORTED_MODULE_5__.createAboutPage)()
 })
 
 document.getElementById('menu').addEventListener('click', () => {
-    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_2__.removeChildren)(grabBox)
     ;(0,_pages_menu__WEBPACK_IMPORTED_MODULE_4__.createMenuPage)()
 })
 
+
 document.getElementById('home').addEventListener('click', () => {
-    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_2__.removeChildren)(grabBox)
     ;(0,_pages_home__WEBPACK_IMPORTED_MODULE_3__.createHomePage)()
 })
 
@@ -232,7 +224,8 @@ function createImageWrapperContent(wrapper) {
 }
 
 function createAboutPage(){
-    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createHeader)('About', ["menuAboutContact"])
+    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.removeChildren)(_index__WEBPACK_IMPORTED_MODULE_0__.grabBox)
+    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createPageTitle)('About', ["menuAboutContact"])
     let wrapper = createWrappers()
     companyInfo(wrapper)
     createBayContent(wrapper)
@@ -285,7 +278,8 @@ function createPhoneElements(wrapper) {
 }
 
 function createContactPage(){
-    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createHeader)('Contact', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
+    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.removeChildren)(_index__WEBPACK_IMPORTED_MODULE_0__.grabBox)
+    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createPageTitle)('Contact', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
     let wrapper = createWrappers()
     createAddressElements(wrapper)
     createPhoneElements(wrapper)
@@ -307,6 +301,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _index__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../index */ "./src/index.js");
 /* harmony import */ var _helpers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../helpers */ "./src/helpers.js");
+/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./menu */ "./src/pages/menu.js");
+
 
 
 
@@ -318,6 +314,14 @@ function appendHours(parent){
     })
 }
 
+function createButton() {
+    let menuButton = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('button', ['formatButton'], 'view-menu-button', 'View Our Menu')
+    menuButton.addEventListener('click', function() {
+        ;(0,_menu__WEBPACK_IMPORTED_MODULE_2__.createMenuPage)()
+    })
+    return menuButton
+}
+
 function createHomeBody() {
     let bodyWrapper = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('section',['moreInfo'])
     _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(bodyWrapper)
@@ -325,12 +329,12 @@ function createHomeBody() {
     let address = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('address', '', '', '48 6th Street, Applachicola, Fl')
     contactInfo.appendChild(address)
     appendHours(contactInfo)
-    let menuButton = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('button', ['formatButton'], '', 'View Our Menu')
-    bodyWrapper.append(contactInfo, menuButton)
+    bodyWrapper.append(contactInfo, createButton())
 }
 
 function createHomePage() {
-    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createHeader)("Welcome to C & C's <br> Oyster Bar!", '', "Proudly Serving Appalachicola Bay Oysters")
+    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.removeChildren)(_index__WEBPACK_IMPORTED_MODULE_0__.grabBox)
+    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createPageTitle)("Welcome to C & C's <br> Oyster Bar!", '', "Proudly Serving Appalachicola Bay Oysters")
     createHomeBody()
 }
 
@@ -425,7 +429,8 @@ function createNewSection() {
 }
 
 function createMenuPage() {
-    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createHeader)('Menu', ['menuHeader', "menuAboutContact"]);
+    (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.removeChildren)(_index__WEBPACK_IMPORTED_MODULE_0__.grabBox)
+    ;(0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createPageTitle)('Menu', ['menuHeader', "menuAboutContact"]);
     createNewSection()
 }
 

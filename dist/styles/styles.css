@@ -90,6 +90,7 @@ ul {
   background-color: white;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .navButton:hover {
@@ -145,10 +146,10 @@ h4 {
 
 .moreInfo {
   margin: 10px 0px 0px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  /* display: flex;
+  flex-wrap: wrap; */
+  /* justify-content: space-around;
+  align-items: center; */
 }
 
 .contactInfo {
@@ -167,6 +168,18 @@ h4 {
   outline: none;
   border: white solid 1px;
   box-shadow: 5px 5px 15px 5px #000000;
+  cursor: pointer;
+}
+
+.formatButton > a {
+  color: white;
+  text-decoration: none;
+}
+
+.formatButton:hover {
+  background: linear-gradient(90deg, var(--purple) 43%, var(--blue) 100%);
+  /* background: var(--blue); */
+  transform: scale(1.05);
 }
 
 .moreInfo > * {

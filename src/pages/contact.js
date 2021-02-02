@@ -11,7 +11,7 @@ function createWrappers() {
 }
 
 function createAddressElements(wrapper){
-    let address = createElement('address', '', '','48 6th Street, Applachicola, Fl' )
+    let address = createElement('address', '', '','48 6th Street, Applachicola, Fl, 32320' )
     let span1 = createElement('span', '', '',"Mon-Sat: 11am to 10pm")
     let span2 = createElement('span', '', '',"Sunday: 10am to 9pm")
     wrapper.addressWrapper.append(address, span1,span2)

@@ -7,7 +7,7 @@ function createLogo(header){
     header.appendChild(div1)
     let div2 = createElement('div',     ['logo'])
     div1.appendChild(div2)
-    let logoTop = createElement('h1','',    '', "C &C's" )
+    let logoTop = createElement('h1','',    '', "C & C's" )
     let logoBottom = createElement  ('h2', '', '',"Oyster Bar")
     div2.append(logoTop, logoBottom)
 }

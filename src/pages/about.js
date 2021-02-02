@@ -17,8 +17,8 @@ function createBayContent(wrapper) {
     let bayInfoWrapper = createElement('div',['bayInfo']);
     wrapper.aboutImageWrapper.append(bayInfoWrapper);
     let subheader = createElement('h4', '','petitionHeader', "Our Bay is in Danger!")
-    let content = createElement('p', '', '', "The lack of freshwater flowing into our bay is killing our oysters and our way of life. Please help by signing this petition to increase the freshwater flowing out of the Appalachicola River" )
-    let button = createElement('button',['formatButton'], '', "Save Our Bay")
+    let content = createElement('p', '', '', "The lack of freshwater flowing into our bay is killing our oysters and our way of life. Please help by signing this petition to increase the freshwater flowing out of the Appalachicola River." )
+    let button = createElement('button',['formatButton'], '', "<a href = 'https://www.change.org/p/u-s-army-corps-of-engineers-fix-the-water-levels-in-the-acf-river-basin-to-save-oyster-population-in-apalachicola-bay' target = '_blank'>Save Our Bay</a>")
     bayInfoWrapper.append(subheader, content, button)
 }
 

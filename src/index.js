@@ -1,24 +1,10 @@
-import {createHeader} from './createHeader'
-import {createContentbox} from './createBody'
-import {createHome, createHomePage} from './homepage'
-import {removeChildren} from './removeItems'
-import {createMenuPage} from './menu'
-import {addInfo as aboutContent, createAboutPage} from './about'
-import {createContactPage} from './contact'
-
-function createElement(type, classes, id ,content) {
-    let newElement = document.createElement(type);
-    if (classes){
-        classes.forEach(item => {
-            newElement.classList.add(item)
-        });
-    } 
-    if(id){newElement.id = id}
-    if (content){
-        newElement.innerHTML = content;
-    }
-    return newElement
-}
+import {createHeader} from './fixed-page-elements/createHeader'
+import {createContentbox} from './fixed-page-elements/createBody'
+import {removeChildren} from './helpers'
+import {createHomePage} from './pages/home'
+import {createMenuPage} from './pages/menu'
+import {createAboutPage} from './pages/about'
+import {createContactPage} from './pages/contact'
 
 createHeader();
 let grabBox = createContentbox();
@@ -35,7 +21,7 @@ document.getElementById('about').addEventListener('click', () => {
     createAboutPage()
 })
 
-document.getElementById('menu').addEventListener('click', function(){
+document.getElementById('menu').addEventListener('click', () => {
     removeChildren(grabBox)
     createMenuPage()
 })
@@ -45,4 +31,4 @@ document.getElementById('home').addEventListener('click', () => {
     createHomePage()
 })
 
-export {createElement, grabBox}
+export {grabBox}

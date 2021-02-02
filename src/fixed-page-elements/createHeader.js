@@ -1,4 +1,4 @@
-import {createElement} from './index'
+import {createElement} from '../helpers'
 
 
 let body = document.getElementById('content');
@@ -26,8 +26,6 @@ let createHeader = () => {
         let navItems = [{content: 'Home', id: 'home' }, {content: 'Menu', id: 'menu'}, {content: 'About', id: 'about'}, {content: 'Contact', id: 'contact'}]
 
         navItems.forEach(item => {
-            console.log(item.id)
-            console.log(item.content)
             list.appendChild(createElement('li', ['navButton'], item.id , item.content))
         });
     }
@@ -37,4 +35,4 @@ let createHeader = () => {
 }
 
 
-export {createHeader, body}
+export {body, createHeader}

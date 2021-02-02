@@ -1,5 +1,5 @@
-import {createElement, grabBox} from './index'
-import {createHeader} from './removeItems'
+import {grabBox} from '../index'
+import {createElement, createHeader} from '../helpers'
 
 //Menu Items
 

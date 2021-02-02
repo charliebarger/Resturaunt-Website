@@ -1,9 +1,23 @@
-import {createElement, grabBox} from './index'
+import {grabBox} from './index'
 
 function removeChildren(parent){
     while (parent.firstChild){
         parent.firstChild.remove()
     }
+}
+
+function createElement(type, classes, id ,content) {
+    let newElement = document.createElement(type);
+    if (classes){
+        classes.forEach(item => {
+            newElement.classList.add(item)
+        });
+    } 
+    if(id){newElement.id = id}
+    if (content){
+        newElement.innerHTML = content;
+    }
+    return newElement
 }
 
 function createHeader(headerContent, headerClasses, subheaderContent) {
@@ -16,4 +30,4 @@ function createHeader(headerContent, headerClasses, subheaderContent) {
     grabBox.appendChild(header)
 }
 
-export {removeChildren, createHeader}
+export {removeChildren, createElement, createHeader}

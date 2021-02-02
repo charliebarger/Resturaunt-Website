@@ -1,4 +1,4 @@
-import {createElement} from './index'
+import {createElement} from '../helpers'
 import {body} from './createHeader'
 
 function createContentbox(){

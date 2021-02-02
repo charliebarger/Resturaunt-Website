@@ -1,5 +1,5 @@
-import {createElement, grabBox} from './index'
-import {createHeader} from './removeItems'
+import {grabBox} from '../index'
+import {createElement, createHeader} from '../helpers'
 
 function createWrappers() {
     let bodyWrapper = createElement('section', ['moreInfo']);
@@ -9,7 +9,6 @@ function createWrappers() {
     grabBox.appendChild(bodyWrapper)
     return {addressWrapper, phoneWrapper}
 }
-
 
 function createAddressElements(wrapper){
     let address = createElement('address', '', '','48 6th Street, Applachicola, Fl' )
@@ -29,7 +28,7 @@ function createPhoneElements(wrapper) {
 }
 
 function createContactPage(){
-    createHeader('Contact Us', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
+    createHeader('Contact', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
     let wrapper = createWrappers()
     createAddressElements(wrapper)
     createPhoneElements(wrapper)

@@ -50,7 +50,7 @@ function createLogo(header){
     header.appendChild(div1)
     let div2 = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('div',     ['logo'])
     div1.appendChild(div2)
-    let logoTop = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('h1','',    '', "C &C's" )
+    let logoTop = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)('h1','',    '', "C & C's" )
     let logoBottom = (0,_helpers__WEBPACK_IMPORTED_MODULE_0__.createElement)  ('h2', '', '',"Oyster Bar")
     div2.append(logoTop, logoBottom)
 }
@@ -208,8 +208,8 @@ function createBayContent(wrapper) {
     let bayInfoWrapper = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('div',['bayInfo']);
     wrapper.aboutImageWrapper.append(bayInfoWrapper);
     let subheader = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('h4', '','petitionHeader', "Our Bay is in Danger!")
-    let content = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('p', '', '', "The lack of freshwater flowing into our bay is killing our oysters and our way of life. Please help by signing this petition to increase the freshwater flowing out of the Appalachicola River" )
-    let button = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('button',['formatButton'], '', "Save Our Bay")
+    let content = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('p', '', '', "The lack of freshwater flowing into our bay is killing our oysters and our way of life. Please help by signing this petition to increase the freshwater flowing out of the Appalachicola River." )
+    let button = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('button',['formatButton'], '', "<a href = 'https://www.change.org/p/u-s-army-corps-of-engineers-fix-the-water-levels-in-the-acf-river-basin-to-save-oyster-population-in-apalachicola-bay' target = '_blank'>Save Our Bay</a>")
     bayInfoWrapper.append(subheader, content, button)
 }
 
@@ -261,7 +261,7 @@ function createWrappers() {
 }
 
 function createAddressElements(wrapper){
-    let address = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('address', '', '','48 6th Street, Applachicola, Fl' )
+    let address = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('address', '', '','48 6th Street, Applachicola, Fl, 32320' )
     let span1 = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('span', '', '',"Mon-Sat: 11am to 10pm")
     let span2 = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('span', '', '',"Sunday: 10am to 9pm")
     wrapper.addressWrapper.append(address, span1,span2)

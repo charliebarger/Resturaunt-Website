@@ -1,5 +1,5 @@
 import {grabBox} from '../index'
-import {createElement, createHeader} from '../helpers'
+import {createElement, createPageTitle, removeChildren} from '../helpers'
 
 function createWrappers() {
     let infoWrapper = createElement('div',['aboutText'])
@@ -33,7 +33,8 @@ function createImageWrapperContent(wrapper) {
 }
 
 function createAboutPage(){
-    createHeader('About', ["menuAboutContact"])
+    removeChildren(grabBox)
+    createPageTitle('About', ["menuAboutContact"])
     let wrapper = createWrappers()
     companyInfo(wrapper)
     createBayContent(wrapper)

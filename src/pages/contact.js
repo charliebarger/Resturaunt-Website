@@ -1,5 +1,5 @@
 import {grabBox} from '../index'
-import {createElement, createHeader} from '../helpers'
+import {createElement, createPageTitle, removeChildren} from '../helpers'
 
 function createWrappers() {
     let bodyWrapper = createElement('section', ['moreInfo']);
@@ -28,7 +28,8 @@ function createPhoneElements(wrapper) {
 }
 
 function createContactPage(){
-    createHeader('Contact', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
+    removeChildren(grabBox)
+    createPageTitle('Contact', ['menuAboutContact', 'zeroPaddingBottom'],'We Would Love To Hear From You !')
     let wrapper = createWrappers()
     createAddressElements(wrapper)
     createPhoneElements(wrapper)

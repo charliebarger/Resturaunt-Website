@@ -1,5 +1,5 @@
 import {grabBox} from '../index'
-import {createElement, createHeader} from '../helpers'
+import {createElement, createPageTitle, removeChildren} from '../helpers'
 
 //Menu Items
 
@@ -73,7 +73,8 @@ function createNewSection() {
 }
 
 function createMenuPage() {
-    createHeader('Menu', ['menuHeader', "menuAboutContact"]);
+    removeChildren(grabBox)
+    createPageTitle('Menu', ['menuHeader', "menuAboutContact"]);
     createNewSection()
 }
 

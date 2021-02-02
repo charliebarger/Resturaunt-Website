@@ -20,7 +20,7 @@ function createElement(type, classes, id ,content) {
     return newElement
 }
 
-function createHeader(headerContent, headerClasses, subheaderContent) {
+function createPageTitle(headerContent, headerClasses, subheaderContent) {
     let header = createElement('h3', headerClasses, '', headerContent)
     if (subheaderContent){
         let subheader = createElement('h4', '', '', subheaderContent)
@@ -30,4 +30,4 @@ function createHeader(headerContent, headerClasses, subheaderContent) {
     grabBox.appendChild(header)
 }
 
-export {removeChildren, createElement, createHeader}
+export {removeChildren, createElement, createPageTitle}

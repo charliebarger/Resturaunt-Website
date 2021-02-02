@@ -1,5 +1,6 @@
 import {grabBox} from '../index'
-import {createElement, createHeader} from '../helpers'
+import {createElement, createPageTitle, removeChildren} from '../helpers'
+import {createMenuPage} from './menu'
 
 function appendHours(parent){
     let hours = ['Mon-Sat: 11am to 10pm', 'Sunday: 10am to 9pm' ]
@@ -9,6 +10,14 @@ function appendHours(parent){
     })
 }
 
+function createButton() {
+    let menuButton = createElement('button', ['formatButton'], 'view-menu-button', 'View Our Menu')
+    menuButton.addEventListener('click', function() {
+        createMenuPage()
+    })
+    return menuButton
+}
+
 function createHomeBody() {
     let bodyWrapper = createElement('section',['moreInfo'])
     grabBox.append(bodyWrapper)
@@ -16,12 +25,12 @@ function createHomeBody() {
     let address = createElement('address', '', '', '48 6th Street, Applachicola, Fl')
     contactInfo.appendChild(address)
     appendHours(contactInfo)
-    let menuButton = createElement('button', ['formatButton'], '', 'View Our Menu')
-    bodyWrapper.append(contactInfo, menuButton)
+    bodyWrapper.append(contactInfo, createButton())
 }
 
 function createHomePage() {
-    createHeader("Welcome to C & C's <br> Oyster Bar!", '', "Proudly Serving Appalachicola Bay Oysters")
+    removeChildren(grabBox)
+    createPageTitle("Welcome to C & C's <br> Oyster Bar!", '', "Proudly Serving Appalachicola Bay Oysters")
     createHomeBody()
 }
 

@@ -11,23 +11,19 @@ let grabBox = createContentbox();
 createHomePage()
 
 document.getElementById('contact').addEventListener('click', () => {
-    removeChildren(grabBox)
     createContactPage()
 })
 
-
 document.getElementById('about').addEventListener('click', () => {
-    removeChildren(grabBox)
     createAboutPage()
 })
 
 document.getElementById('menu').addEventListener('click', () => {
-    removeChildren(grabBox)
     createMenuPage()
 })
 
+
 document.getElementById('home').addEventListener('click', () => {
-    removeChildren(grabBox)
     createHomePage()
 })
 

@@ -22,7 +22,7 @@ function createHomeBody() {
     let bodyWrapper = createElement('section',['moreInfo'])
     grabBox.append(bodyWrapper)
     let contactInfo = createElement('div', ['contactInfo'])
-    let address = createElement('address', '', '', '48 6th Street, Applachicola, Fl')
+    let address = createElement('address', '', '', '48 6th Street, Applachicola, Fl, 32320')
     contactInfo.appendChild(address)
     appendHours(contactInfo)
     bodyWrapper.append(contactInfo, createButton())

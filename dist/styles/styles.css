@@ -256,12 +256,11 @@ figcaption {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: 10px;
 }
 
 .aboutImageWrapper > * > *,
 .aboutImageWrapper > * {
-  margin: 10px;
+  margin: 10px 0px;
 }
 
 .bayInfo {
@@ -274,7 +273,7 @@ figcaption {
 }
 
 #petitionHeader {
-  font-size: 26px;
+  font-size: 22px;
   margin-bottom: 15px;
 }
 
@@ -300,6 +299,15 @@ figcaption {
 }
 
 @media (min-width: 500px) {
+  #petitionHeader {
+    font-size: 26px;
+  }
+
+  .aboutImageWrapper > * > *,
+  .aboutImageWrapper > * {
+    margin: 10px;
+  }
+
   ul {
     margin-right: 30px;
   }

@@ -326,7 +326,7 @@ function createHomeBody() {
     let bodyWrapper = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('section',['moreInfo'])
     _index__WEBPACK_IMPORTED_MODULE_0__.grabBox.append(bodyWrapper)
     let contactInfo = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('div', ['contactInfo'])
-    let address = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('address', '', '', '48 6th Street, Applachicola, Fl')
+    let address = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('address', '', '', '48 6th Street, Applachicola, Fl, 32320')
     contactInfo.appendChild(address)
     appendHours(contactInfo)
     bodyWrapper.append(contactInfo, createButton())

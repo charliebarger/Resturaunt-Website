@@ -100,11 +100,6 @@ ul {
 
 /* set up background image */
 
-#content {
-  display: flex;
-  flex-direction: column;
-}
-
 body {
   display: flex;
   height: 100vh;
@@ -115,11 +110,11 @@ body {
 /* Style White Box centered on page */
 
 main {
-  flex: 1;
   width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 100px);
 }
 
 .pageContentwrapper {

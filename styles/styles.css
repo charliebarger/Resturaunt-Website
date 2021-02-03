@@ -156,7 +156,6 @@ h4 {
   font-size: 18px;
   display: flex;
   flex-direction: column;
-  white-space: nowrap;
 }
 
 .formatButton {

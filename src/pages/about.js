@@ -9,7 +9,7 @@ function createWrappers() {
 }
 
 function companyInfo(wrapper) {
-    let aboutUs = createElement('p', '','petitionHeader', "C & C's Oyster Bar was established in 1996 by a pair of seafood lovers,for seafood lovers. We believe Appalachicola Bay oysters are the best in the world and we are proud to serve fresh local seafood daily!")
+    let aboutUs = createElement('p', '','petitionHeader', "C & C's Oyster Bar was established in 1996 by a pair of seafood lovers, for seafood lovers. We believe Appalachicola Bay oysters are the best in the world and we are proud to serve fresh local seafood daily!")
     wrapper.infoWrapper.appendChild(aboutUs)
 }
 

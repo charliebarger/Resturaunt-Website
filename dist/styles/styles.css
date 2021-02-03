@@ -3,6 +3,9 @@ body {
   margin: 0px;
   background-image: url(../img/ben-stern-4n96lyJd2Xs-unsplash.jpg);
   background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  background-size: cover;
 }
 
 html {
@@ -96,14 +99,6 @@ ul {
 .navButton:hover {
   color: var(--purple);
   transform: scale(1.1);
-}
-
-/* set up background image */
-
-body {
-  height: 100vh;
-  width: 100vw;
-  background-size: cover;
 }
 
 /* Style White Box centered on page */

@@ -200,7 +200,7 @@ function createWrappers() {
 }
 
 function companyInfo(wrapper) {
-    let aboutUs = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('p', '','petitionHeader', "C & C's Oyster Bar was established in 1996 by a pair of seafood lovers,for seafood lovers. We believe Appalachicola Bay oysters are the best in the world and we are proud to serve fresh local seafood daily!")
+    let aboutUs = (0,_helpers__WEBPACK_IMPORTED_MODULE_1__.createElement)('p', '','petitionHeader', "C & C's Oyster Bar was established in 1996 by a pair of seafood lovers, for seafood lovers. We believe Appalachicola Bay oysters are the best in the world and we are proud to serve fresh local seafood daily!")
     wrapper.infoWrapper.appendChild(aboutUs)
 }
 
